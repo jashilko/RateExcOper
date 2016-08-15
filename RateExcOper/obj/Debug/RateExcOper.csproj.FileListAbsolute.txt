@@ -1,0 +1,9 @@
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\bin\Debug\RateExcOper.exe.config
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\bin\Debug\RateExcOper.exe
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\bin\Debug\RateExcOper.pdb
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.csprojResolveAssemblyReference.cache
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.Properties.Resources.resources
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.csproj.GenerateResource.Cache
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.exe
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.pdb
+c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.MainForm.resources
