@@ -7,3 +7,5 @@ c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\
 c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.exe
 c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.pdb
 c:\users\shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.MainForm.resources
+C:\Users\Shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\obj\Debug\RateExcOper.SettingForm.resources
+C:\Users\Shilyaev\documents\visual studio 2012\Projects\RateExcOper\RateExcOper\bin\Debug\Mono.Security.dll
