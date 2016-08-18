@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -51,6 +52,7 @@
             this.summa = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
@@ -72,12 +74,12 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(871, 261);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(838, 264);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(778, 235);
+            this.button1.Location = new System.Drawing.Point(745, 238);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 23);
             this.button1.TabIndex = 1;
@@ -108,7 +110,7 @@
             this.dataGridView.ReadOnly = true;
             this.dataGridView.RowHeadersVisible = false;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView.Size = new System.Drawing.Size(865, 194);
+            this.dataGridView.Size = new System.Drawing.Size(832, 197);
             this.dataGridView.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -129,7 +131,7 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(865, 26);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(832, 26);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // datePickerStart
@@ -177,7 +179,7 @@
             this.settingToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(871, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -269,19 +271,29 @@
             this.ordertime.Name = "ordertime";
             this.ordertime.ReadOnly = true;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "RateExc";
+            this.notifyIcon1.Visible = true;
+            this.notifyIcon1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon1_MouseClick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(871, 285);
+            this.ClientSize = new System.Drawing.Size(838, 288);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(450, 200);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Заявки на покупку валюты";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
+            this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
@@ -317,6 +329,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn summa;
         private System.Windows.Forms.DataGridViewTextBoxColumn confirm;
         private System.Windows.Forms.DataGridViewTextBoxColumn ordertime;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
 
 
     }

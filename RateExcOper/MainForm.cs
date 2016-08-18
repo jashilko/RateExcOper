@@ -16,6 +16,9 @@ namespace RateExcOper
     {
         private NpgsqlConnection conn;
 
+        // Здесь хранится состояние окна до сворачивания (максимизированное или нормальное)
+        private FormWindowState _OldFormState;
+
         public MainForm()
         {
             InitializeComponent();
@@ -81,14 +84,11 @@ namespace RateExcOper
             if (dataGridView.SelectedCells.Count > 0)
                 id = dataGridView.SelectedCells[0].Value;
             
-            
-            dataGridView.DataSource = e.Result;
-            /*
             //Разворачиваем если пришли новые документы
             if (dataGridView.DataSource != null && CheckNewDocs((DataView)dataGridView.DataSource, (DataView)e.Result))
             {
                 Show();
-                //WindowState = _OldFormState;
+                WindowState = _OldFormState;
             }
             dataGridView.DataSource = e.Result;
             //Выделение строки
@@ -96,7 +96,21 @@ namespace RateExcOper
                 foreach (DataGridViewRow row in dataGridView.Rows)
                     if (row.Cells[0].Value != DBNull.Value && (int)row.Cells[0].Value == (int)id)
                         row.Selected = true;      
-             */
+             
+        }
+
+        //Проверка появления новых документов
+        private static bool CheckNewDocs(DataView oldTable, DataView newTable)
+        {
+            oldTable.Sort = "id";
+            foreach (DataRowView row in newTable)
+            {
+                //if (row["confirm"] != DBNull.Value && (string)row["confirm"] == "Новый")
+                if (row["confirm"] == DBNull.Value)
+                    if (oldTable.Find(row["id"]) < 0)
+                        return true;
+            }
+            return false;
         }
 
         private void settingToolStripMenuItem_Click(object sender, EventArgs e)
@@ -121,6 +135,47 @@ namespace RateExcOper
                 datePickerStart.Value = datePickerEnd.Value = DateTime.Today;
             if (!backgroundWorkerUpdateList.IsBusy && conn != null)
                 backgroundWorkerUpdateList.RunWorkerAsync();            
+        }
+
+        private void MainForm_Resize(object sender, EventArgs e)
+        {
+            if (FormWindowState.Minimized == WindowState)
+            {
+                Hide();
+            }
+        }
+
+        private void notifyIcon1_MouseClick(object sender, MouseEventArgs e)
+        {
+            //проверяем, какой кнопкой было произведено нажатие
+            if (e.Button == MouseButtons.Left)//если левой кнопкой мыши
+            {
+                //проверяем текущее состояние окна
+                if (WindowState == FormWindowState.Normal || WindowState == FormWindowState.Maximized)//если оно развернуто
+                {
+                    //сохраняем текущее состояние
+                    _OldFormState = WindowState;
+                    //сворачиваем окно
+                    WindowState = FormWindowState.Minimized;
+                }
+                else//в противном случае
+                {
+                    //и показываем на нанели задач
+                    Show();
+                    //разворачиваем (возвращаем старое состояние "до сворачивания")
+                    WindowState = _OldFormState;
+                }
+            }
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            timerUpdate.Stop();
+            try
+            {
+                conn.Close();
+            }
+            catch (Exception) { }
         }
     }
 }
