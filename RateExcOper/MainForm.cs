@@ -50,7 +50,7 @@ namespace RateExcOper
         {
             var cmd = new NpgsqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT * FROM orders";
+            cmd.CommandText = "SELECT * FROM orders where confirm is not null";
             DataTable resTable = new DataTable();
             using (var reader = cmd.ExecuteReader())
             {
@@ -106,7 +106,7 @@ namespace RateExcOper
             foreach (DataRowView row in newTable)
             {
                 //if (row["confirm"] != DBNull.Value && (string)row["confirm"] == "Новый")
-                if (row["confirm"] == DBNull.Value)
+                if ((row["confirm"] != DBNull.Value) && (Convert.ToInt32(row["confirm"]) == 0))
                     if (oldTable.Find(row["id"]) < 0)
                         return true;
             }
