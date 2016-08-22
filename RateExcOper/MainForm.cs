@@ -50,7 +50,7 @@ namespace RateExcOper
         {
             var cmd = new NpgsqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT * FROM orders where confirm is not null";
+            cmd.CommandText = "SELECT o.id, c.username AS idclient, o.cur, o.rate, CASE vector WHEN 0 THEN 'Продает' WHEN 1 THEN 'Покупает' ELSE 'Ошибка' END AS vector, o.volume, o.summa, o.confirm, o.ordertime  FROM orders o, client c where confirm is not null and c.id=o.idclient";
             DataTable resTable = new DataTable();
             using (var reader = cmd.ExecuteReader())
             {
