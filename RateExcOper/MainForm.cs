@@ -50,7 +50,11 @@ namespace RateExcOper
         {
             var cmd = new NpgsqlCommand();
             cmd.Connection = conn;
-            cmd.CommandText = "SELECT o.id, c.username AS idclient, o.cur, o.rate, CASE vector WHEN 0 THEN 'Продает' WHEN 1 THEN 'Покупает' ELSE 'Ошибка' END AS vector, o.volume, o.summa, o.confirm, o.ordertime  FROM orders o, client c where confirm is not null and c.id=o.idclient";
+            cmd.CommandText = "SELECT o.id, c.username AS idclient, o.cur, o.rate, CASE vector WHEN 0 THEN 'Продает' WHEN 1 THEN 'Покупает' ELSE 'Ошибка' END AS vector, o.volume, o.summa, o.confirm, o.ordertime  FROM orders o, client c where confirm is not null and c.id=o.idclient and ordertime >= :datestart and ordertime <= :dateend";
+            cmd.Parameters.Add("datestart", NpgsqlTypes.NpgsqlDbType.Timestamp);
+            cmd.Parameters["datestart"].Value = dateTime1.Date;
+            cmd.Parameters.Add("dateend", NpgsqlTypes.NpgsqlDbType.Timestamp);
+            cmd.Parameters["dateend"].Value = dateTime2.Date;
             DataTable resTable = new DataTable();
             using (var reader = cmd.ExecuteReader())
             {
@@ -177,5 +181,27 @@ namespace RateExcOper
             }
             catch (Exception) { }
         }
+
+        private void datePickerStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker pickerStart = sender as DateTimePicker;
+            if (pickerStart.Value > datePickerEnd.Value)
+                datePickerEnd.Value = pickerStart.Value;
+            else
+                if (!backgroundWorkerUpdateList.IsBusy && conn != null)
+                    backgroundWorkerUpdateList.RunWorkerAsync();
+        }
+
+        private void datePickerEnd_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker pickerEnd = sender as DateTimePicker;
+            if (pickerEnd.Value < datePickerStart.Value)
+                datePickerStart.Value = pickerEnd.Value;
+            else
+                if (!backgroundWorkerUpdateList.IsBusy && conn != null)
+                    backgroundWorkerUpdateList.RunWorkerAsync();
+        }
+
+
     }
 }

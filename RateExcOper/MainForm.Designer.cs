@@ -33,6 +33,15 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idclient = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cur = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vector = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.summa = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.datePickerStart = new System.Windows.Forms.DateTimePicker();
             this.datePickerEnd = new System.Windows.Forms.DateTimePicker();
@@ -43,15 +52,6 @@
             this.settingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.timerUpdate = new System.Windows.Forms.Timer(this.components);
             this.backgroundWorkerUpdateList = new System.ComponentModel.BackgroundWorker();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.idclient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cur = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.rate = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vector = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.volume = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.summa = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.confirm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ordertime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -112,100 +112,6 @@
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.Size = new System.Drawing.Size(832, 197);
             this.dataGridView.TabIndex = 0;
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.ColumnCount = 5;
-            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.datePickerStart, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.datePickerEnd, 3, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(832, 26);
-            this.tableLayoutPanel2.TabIndex = 0;
-            // 
-            // datePickerStart
-            // 
-            this.datePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickerStart.Location = new System.Drawing.Point(22, 3);
-            this.datePickerStart.Name = "datePickerStart";
-            this.datePickerStart.Size = new System.Drawing.Size(95, 20);
-            this.datePickerStart.TabIndex = 1;
-            // 
-            // datePickerEnd
-            // 
-            this.datePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.datePickerEnd.Location = new System.Drawing.Point(148, 3);
-            this.datePickerEnd.Name = "datePickerEnd";
-            this.datePickerEnd.Size = new System.Drawing.Size(96, 20);
-            this.datePickerEnd.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(13, 26);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "c";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Location = new System.Drawing.Point(123, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(19, 26);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "по";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.settingToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
-            this.fileToolStripMenuItem.Text = "&Файл";
-            // 
-            // settingToolStripMenuItem
-            // 
-            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
-            this.settingToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
-            this.settingToolStripMenuItem.Text = "&Настройки";
-            this.settingToolStripMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
-            // 
-            // timerUpdate
-            // 
-            this.timerUpdate.Enabled = true;
-            this.timerUpdate.Interval = 5000;
-            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
-            // 
-            // backgroundWorkerUpdateList
-            // 
-            this.backgroundWorkerUpdateList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerUpdateList_DoWork);
-            this.backgroundWorkerUpdateList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerUpdateList_RunWorkerCompleted);
             // 
             // id
             // 
@@ -270,6 +176,104 @@
             this.ordertime.HeaderText = "Время заказа";
             this.ordertime.Name = "ordertime";
             this.ordertime.ReadOnly = true;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 5;
+            this.tableLayoutPanel1.SetColumnSpan(this.tableLayoutPanel2, 2);
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Controls.Add(this.datePickerStart, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.datePickerEnd, 3, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 2, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(832, 26);
+            this.tableLayoutPanel2.TabIndex = 0;
+            // 
+            // datePickerStart
+            // 
+            this.datePickerStart.CustomFormat = "";
+            this.datePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePickerStart.Location = new System.Drawing.Point(22, 3);
+            this.datePickerStart.Name = "datePickerStart";
+            this.datePickerStart.Size = new System.Drawing.Size(95, 20);
+            this.datePickerStart.TabIndex = 1;
+            this.datePickerStart.ValueChanged += new System.EventHandler(this.datePickerStart_ValueChanged);
+            // 
+            // datePickerEnd
+            // 
+            this.datePickerEnd.CustomFormat = "";
+            this.datePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.datePickerEnd.Location = new System.Drawing.Point(148, 3);
+            this.datePickerEnd.Name = "datePickerEnd";
+            this.datePickerEnd.Size = new System.Drawing.Size(96, 20);
+            this.datePickerEnd.TabIndex = 2;
+            this.datePickerEnd.ValueChanged += new System.EventHandler(this.datePickerEnd_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(13, 26);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "c";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Location = new System.Drawing.Point(123, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(19, 26);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "по";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.settingToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(838, 24);
+            this.menuStrip1.TabIndex = 0;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
+            this.fileToolStripMenuItem.Text = "&Файл";
+            // 
+            // settingToolStripMenuItem
+            // 
+            this.settingToolStripMenuItem.Name = "settingToolStripMenuItem";
+            this.settingToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.settingToolStripMenuItem.Text = "&Настройки";
+            this.settingToolStripMenuItem.Click += new System.EventHandler(this.settingToolStripMenuItem_Click);
+            // 
+            // timerUpdate
+            // 
+            this.timerUpdate.Enabled = true;
+            this.timerUpdate.Interval = 5000;
+            this.timerUpdate.Tick += new System.EventHandler(this.timerUpdate_Tick);
+            // 
+            // backgroundWorkerUpdateList
+            // 
+            this.backgroundWorkerUpdateList.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerUpdateList_DoWork);
+            this.backgroundWorkerUpdateList.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerUpdateList_RunWorkerCompleted);
             // 
             // notifyIcon1
             // 
